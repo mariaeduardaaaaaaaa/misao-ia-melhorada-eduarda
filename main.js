@@ -52,7 +52,7 @@ function mostraResultado(){
 function JogarNovamente(){
     atual = 0; 
     historiaFinal = " ";
-    mastrapergunta();
+    mostrapergunta();
 }
 
 
