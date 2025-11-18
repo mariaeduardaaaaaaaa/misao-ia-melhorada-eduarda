@@ -242,7 +242,7 @@ function mostraAlternativas(){
 }
 
 function respostaSelecionada(opcaoSelecionada){
-    const afirmacoes = opcaoSelecionada.afirmacao.join(" ");
+    const afirmacoes = aletorio( opcaoSelecionada.afirmacao).join(" ");
     historiaFinal += afirmacoes + " ";
     atual++;
     mostraPergunta();
@@ -254,5 +254,11 @@ function mostraResultado(){
     caixaAlternativas.textContent = "";
 }
 
+function aletorio(lista){
+    const posicao = Math.floor(math.random()*lista.length);
+    return lista[posicao];
+}
+
 mostraPergunta();
+
 
