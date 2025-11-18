@@ -1,4 +1,4 @@
-import { aletorio } from "./aleatorio.js";
+import { aleatorio } from "./aleatorio.js";
 import { perguntas } from "./perguntas.js";
 
 const caixaPrincipal = document.querySelector(".caixa-principal");
@@ -6,19 +6,24 @@ const caixaPerguntas = document.querySelector(".caixa-perguntas");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
+const botaoJogarNovamente = document.querySelector(".novamente-btn")
+
+
 
 let atual = 0;
 let perguntaAtual;
-let historiaFinal = "";
+let historiaFinal = " ";
 
 function mostraPergunta(){
+
     if (atual >= perguntas.length){
         mostraResultado();
         return;
     }
+
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
-    caixaAlternativas.textContent = "";
+    caixaAlternativas.textContent = " ";
     mostraAlternativas();
 }
 
@@ -32,7 +37,7 @@ function mostraAlternativas(){
 }
 
 function respostaSelecionada(opcaoSelecionada){
-    const afirmacoes = aletorio( opcaoSelecionada.afirmacao).join(" ");
+    const afirmacoes = aleatorio(opcaoSelecionada.afirmacao);
     historiaFinal += afirmacoes + " ";
     atual++;
     mostraPergunta();
@@ -41,8 +46,9 @@ function respostaSelecionada(opcaoSelecionada){
 function mostraResultado(){
     caixaPerguntas.textContent = "Após avaliar suas respostas, o seu perfil profissional é:";
     textoResultado.textContent = historiaFinal;
-    caixaAlternativas.textContent = "";
+    caixaAlternativas.textContent = " ";
 }
+
 
 
 mostraPergunta();
