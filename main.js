@@ -47,11 +47,13 @@ function mostraResultado(){
     caixaPerguntas.textContent = "Após avaliar suas respostas, o seu perfil profissional é:";
     textoResultado.textContent = historiaFinal;
     caixaAlternativas.textContent = " ";
+    caixaResultado.classList.add("mostrar");
     botaoJogarNovamente.addEventListener("click".JogarNovamente)
 }
 function JogarNovamente(){
     atual = 0; 
     historiaFinal = " ";
+    caixaResultado.classList.remove("mostrar");
     mostrapergunta();
 }
 
